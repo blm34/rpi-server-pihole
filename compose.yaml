@@ -1,0 +1,18 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      # DNS Ports
+      - "53:53/tcp"
+      - "53:53/udp"
+      # HTTP(S) Port - Uncomment if not accessible via reverse proxy
+      # - "80:80/tcp"
+      # - "443:443/tcp"
+    environment:
+      TZ: 'Europe/London'
+      FTLCONF_webserver_api_password: ${WEB_PASSWORD:?Error: Web Password Required}
+      FTLCONF_dns_listeningMode: 'all'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+    restart: unless-stopped
