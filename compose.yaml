@@ -11,7 +11,7 @@ services:
       # - "443:443/tcp"
     environment:
       TZ: 'Europe/London'
-      FTLCONF_webserver_api_password: ${WEB_PASSWORD:?Error: Web Password Required}
+      FTLCONF_webserver_api_password: ${WEB_PASSWORD}
       FTLCONF_dns_listeningMode: 'all'
     volumes:
       - './etc-pihole:/etc/pihole'
