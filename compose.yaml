@@ -16,3 +16,10 @@ services:
     volumes:
       - './etc-pihole:/etc/pihole'
     restart: unless-stopped
+    networks:
+      - nginx-proxy-net
+
+networks:
+  nginx-proxy-net:
+    external: true
+    
