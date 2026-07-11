@@ -55,11 +55,14 @@ Restart the system-resolvd service to load the changes
 sudo systemctl restart systemd-resolved
 ```
 
-If [nginx](https://github.com/blm34/rpi-server-nginx) is not set up to access the web UI, uncomment the line exposing
-port 80 in `compose.yaml`
-
 Start the container with
 
 ```bash
 docker compose up -d
 ```
+
+If [nginx](https://github.com/blm34/self-hosted-nginx) is not set up to access
+the web UI, uncomment the line exposing port 80 in `compose.yaml`. The web UI
+can then be accessed and a DNS record can be added to point the domain specified
+in .env to the ip address of the machine running nginx. The line exposing port
+80 in `compose.yaml` can then be commented again.
